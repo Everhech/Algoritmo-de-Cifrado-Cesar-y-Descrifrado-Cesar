@@ -1,0 +1,94 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define TAM 500
+
+int main()
+{
+	char tam[TAM];
+ 	char aux;
+ 	int m, d, r, e, p;
+
+	printf("\n1. Cifrado con Cesar   \n2. Descifrar con Cesar   \n3. Salir  \n¿Que eliges?: ");
+	scanf("%d", &r);
+	getchar();
+
+	while(r!=3 && e!=2){
+		if (r==1)
+		{
+			printf("\n\nEligio: Cifrado con Cesar\n"); 
+			printf("Se desplazaran 2 posiciones\n");
+			printf("\nDigite la palabra/oracion que desea cifrar:\n"); 
+			gets(tam);
+			d=strlen(tam);
+		 	printf("\n\n");
+
+			printf("La palabra/oracion cifrada es: \n");
+			for(int i=0;i<d;i++) {
+    			if(tam[i]=='z' || tam[i]=='Z' || tam[i]=='y' || tam[i]=='Y'|| tam[i]==' '){
+       			 	if(tam[i]=='z'|| tam[i]=='Z'){
+       			 		tam[i]='b';
+        			}
+    	 	 	  	if(tam[i]=='y'|| tam[i]=='Y') {
+    	    			tam[i]='a';
+    	    		}
+	       		 	if(tam[i]==' ') {
+	        			tam[i]=' ';
+        			}  
+    			}
+    			else {
+    				tam[i]+=2;
+    			}
+			}
+			printf("%s", strupr(tam));
+		}
+
+		if (r==2)
+		{
+			printf("\n\nEligio: Descifrado con Cesar\n"); 
+			printf("Se desplazaran 2 posiciones\n");
+			printf("\nDigite la palabra/oracion que desea descifrar:\n");
+			gets(tam);
+
+			d=strlen(tam);
+			
+			printf("\n\n");
+
+			printf("La palabra/oracion descifrada es: \n");
+			for(int i=0;i<d;i++) {
+    			if(tam[i]=='b' || tam[i]=='B' || tam[i]=='a' || tam[i]=='A' || tam[i]==' '){
+       			 	if(tam[i]=='b' || tam[i]=='B'){
+       			 		tam[i]='z';
+        			}
+    	 	 	  	if(tam[i]=='a' || tam[i]=='A') {
+    	    			tam[i]='y';
+    	    		}
+	       		 	if(tam[i]==' ') {
+	        			tam[i]=' ';
+        			} 
+    			}
+    			else {
+    				tam[i]-=2;
+    			}
+			}
+			printf("%s", strupr(tam));
+				
+		}
+		printf("\n\n");
+		printf("¿Desea probar nuevamente? (Si/No)     \n1. Si   \n2. No \n¿Que eliges?:");
+		scanf("%d", &e);
+		getchar();
+		printf("\n\n");
+		if (e==1)
+		{
+			printf("\n1. Cifrado con Cesar   \n2. Descifrar con Cesar   \n3. Salir  \n¿Que eliges?: ");
+			scanf("%d", &r);
+			getchar();
+		}
+		if(e==2){
+			printf("Hasta luego\n");
+		}
+	}	
+	
+	return 0;
+}
